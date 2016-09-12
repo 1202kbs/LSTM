@@ -1,21 +1,3 @@
-% Parameters:
-% # of features for each timestep : n (= # of input  units)
-% # of training examples          : m
-% # of timestep per example       : T
-% # of classes                    : c (= # of output units = # of output per timestep)
-% 
-% For Multi-Class Labeling (n to c)
-% X = m X n X T
-% z = m X c X T
-% 
-% X(m,:,T) --> z(m,:,T) correspondence
-%
-% For Multi-Class Labeling (1 to c)
-% X = m X 1 X T
-% z = m X c X T
-%
-% X(m,1,T) --> z(m,:,T) correspondence
-
 momentum = 0.2;
 learning_rate = 0.2;
 
