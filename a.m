@@ -3,7 +3,6 @@ learning_rate = 0.2;
 
 x = linspace(0,4*pi,200);
 y = (sin(x) + 1) / 2;
-
 X = zeros(191,1,10);
 z = zeros(191,1,10);
 
@@ -21,22 +20,17 @@ K = size(z,2); % Output
 w_il = randInitWeights(I,H); % Deal with additional LSTM block by making weights 3D
 w_hl = randInitWeights(H,H);
 w_cl = randInitWeights(H,H);
-
 w_if = randInitWeights(I,H);
 w_hf = randInitWeights(H,H);
 w_cf = randInitWeights(H,H);
-
 w_ic = randInitWeights(I,H);
 w_hc = randInitWeights(H,H);
-
 w_iw = randInitWeights(I,H);
 w_hw = randInitWeights(H,H);
 w_cw = randInitWeights(H,H);
-
 w_ck = randInitWeights(H,K);
 
 %Training
-
 for i = 1:1000
   %Forward Propagate
   [a_tl b_tl a_tf b_tf a_tc s_tc a_tw b_tw b_tc a_tk b_tk] = ...
@@ -48,18 +42,14 @@ for i = 1:1000
   a_tl, b_tl, a_tf, b_tf, a_tc, s_tc, a_tw, b_tw, b_tc, a_tk, b_tk, X, z);
   %Update Weights
   w_ck = momentum * w_ck - learning_rate * w_ck_grad;
-  
   w_il = momentum * w_il - learning_rate * w_il_grad;
   w_hl = momentum * w_hl - learning_rate * w_hl_grad;
   w_cl = momentum * w_cl - learning_rate * w_cl_grad;
-  
   w_if = momentum * w_if - learning_rate * w_if_grad;
   w_hf = momentum * w_hf - learning_rate * w_hf_grad;
   w_cf = momentum * w_cf - learning_rate * w_cf_grad;
-  
   w_ic = momentum * w_ic - learning_rate * w_ic_grad;
   w_hc = momentum * w_hc - learning_rate * w_hc_grad;
-  
   w_iw = momentum * w_iw - learning_rate * w_iw_grad;
   w_hw = momentum * w_hw - learning_rate * w_hw_grad;
   w_cw = momentum * w_cw - learning_rate * w_cw_grad;
